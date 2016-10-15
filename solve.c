@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/14 21:20:35 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/15 04:52:45 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "tetriminos.h"
 #include "libft.h"
 
-#include <stdio.h>
 t_square	*g_g = NULL;
 
 static void free_t(t_square **s)
@@ -70,7 +69,7 @@ static int	does_it_fit(t_square *s, t_tetri *t, int i, int j)
 {
 	int		x;
 	int		y;
-	//printf("Hello\n");
+
 	if ((i + t->y > s->size) || (j + t->x > s->size))
 		return (0);
 	y = 0;
@@ -155,10 +154,7 @@ void	call_me(t_tetri **t, int i, int size)
 	int		j;
 
 	if (i == size)
-	{
-		//printf("ayyyyyyyyy\n");
 		best_square(solve(t));
-	}
 	else
 	{
 		j = i;
