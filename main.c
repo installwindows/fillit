@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 16:48:05 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/14 21:38:11 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/18 21:00:08 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,18 @@ void	testing()
 		printf(":(\n");
 }
 
+void	file_testing(char *file)
+{
+	t_tetri	**t;
+
+	t = get_tetri(file);
+}
+
 int		main(int argc, char **argv)
 {
-	testing();
+	//testing();
+	if (argc == 2)
+		file_testing(*++argv);
 	/**
 	t_tetri		**tetris;
 	if (argc == 2)

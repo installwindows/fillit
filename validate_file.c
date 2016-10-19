@@ -6,18 +6,19 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/15 06:19:21 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/18 21:17:59 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include "tetriminos.h"
 #include "libft.h"
 
-static int		validate_tetri(char *s)
+static int		validate_tetri(char *s, int i, int n)
 {
-
+	return (1);
 }
 
 static char		*read_file(char *argv)
@@ -75,7 +76,7 @@ static void		set_a(char *input, t_tetri *t)
 
 }
 
-static t_tetri	**get_tetri(char *input, int nb_t)
+static t_tetri	**extract_tetri(char *input, int nb_t)
 {
 	t_tetri	**t;
 	int		i;
@@ -93,7 +94,7 @@ static t_tetri	**get_tetri(char *input, int nb_t)
 	return (t);
 }
 
-t_tetri	**set_tetri(char *file)
+t_tetri	**get_tetri(char *file)
 {
 	int		i;
 	int		nb_t;
@@ -103,6 +104,7 @@ t_tetri	**set_tetri(char *file)
 	nb_t = 0;
 	if((input = read_file(file)) == NULL)
 		return (NULL);
+	printf("Got the input\n");
 	while (i <= ft_strlen(input))
 	{
 		if (!validate_tetri(input, i, 21))
@@ -110,5 +112,7 @@ t_tetri	**set_tetri(char *file)
 		nb_t++;
 		i += 21;
 	}
-	return (get_tetri(input, nb_t));
+	printf("nb_t: %d\ni: %d\n", nb_t, i);
+	return (NULL);
+	//return (extract_tetri(input, nb_t));
 }

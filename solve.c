@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/15 04:52:45 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/18 21:01:12 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	best_square(t_square *s)
 	if (g_g == NULL)
 	{
 		g_g = s;
-		printf("g_g's not null\n");
 		return ;
 	}
 	if (s->size < g_g->size)
