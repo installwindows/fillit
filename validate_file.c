@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/18 21:17:59 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/20 03:24:21 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -16,9 +16,34 @@
 #include "tetriminos.h"
 #include "libft.h"
 
-static int		validate_tetri(char *s, int i, int n)
+static int		navigate(const char *s, int size, int i, enum e_dir d)
 {
-	return (1);
+	int		j;
+
+	j = 0;
+	if (s[i] == '#')
+		while (j < 4)
+		{
+			navigate(s, size, 
+			j++;
+		}
+}
+
+static int		validate_tetri(const char *s, int size, int i)
+{
+	int		j;
+	int		nb_h;
+
+	nb_h = 0;
+	j = 0;
+	while (j < 20)
+	{
+		if (s[i] == '#')
+		{
+			nb_h++;
+			if ((i - 5 >= 0 && s[i - 5] == '#')
+		}
+	}
 }
 
 static char		*read_file(char *argv)
@@ -29,6 +54,7 @@ static char		*read_file(char *argv)
 	int		nb_byte;
 	int		i;
 
+	input = NULL;
 	if ((fd = open(argv, O_RDONLY)) == -1)
 		return (NULL);
 	while ((nb_byte = read(fd, c, 21)))
@@ -41,7 +67,7 @@ static char		*read_file(char *argv)
 				return (NULL);
 			i++;
 		}
-		if (ft_stradd(input, c) == NULL)
+		if (ft_stradd(&input, c) == NULL)
 			return (NULL);
 	}
 	close(fd);
@@ -104,10 +130,10 @@ t_tetri	**get_tetri(char *file)
 	nb_t = 0;
 	if((input = read_file(file)) == NULL)
 		return (NULL);
-	printf("Got the input\n");
+	printf("Got the input\n%s\n", input);
 	while (i <= ft_strlen(input))
 	{
-		if (!validate_tetri(input, i, 21))
+		if (!validate_tetri(input, i))
 			return (NULL);
 		nb_t++;
 		i += 21;

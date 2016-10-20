@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:34:06 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/14 20:59:23 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/20 03:24:24 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,18 @@ typedef struct	s_square
 	int			size;
 }				t_square;
 
-void	call_me(t_tetri **t, int i, int size);
+enum e_dir
+{
+	NONE,
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+};
 
 extern t_square	*g_g;
+
+void	call_me(t_tetri **t, int i, int size);
+t_tetri	**get_tetri(char *file);
 
 #endif
