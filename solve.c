@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/18 21:01:12 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 07:45:11 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ static t_square	*solve(t_tetri **t)
 	return (s);
 }
 
-void	call_me(t_tetri **t, int i, int size)
+void	permute(t_tetri **t, int i, int size)
 {
 	int		j;
 
@@ -160,7 +160,7 @@ void	call_me(t_tetri **t, int i, int size)
 		while (j <= size)
 		{
 			swap(t, i, j);
-			call_me(t, i + 1, size);
+			permute(t, i + 1, size);
 			swap(t, i, j);
 			j++;
 		}
