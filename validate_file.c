@@ -6,10 +6,10 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 05:53:29 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 07:50:21 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -95,7 +95,7 @@ static char		*read_file(char *argv)
 	return (input);
 }
 
-t_tetri	**get_tetri(char *file)
+int				fillit(char *file)
 {
 	int		i;
 	int		nb_t;
@@ -104,18 +104,19 @@ t_tetri	**get_tetri(char *file)
 	i = 0;
 	nb_t = 0;
 	if((input = read_file(file)) == NULL)
-		return (NULL);
-	printf("Got the input\n%s\n", input);
+		return (1);
 	while (input[i] != '#')
 		i++;
 	i = 0;
 	while (i <= ft_strlen(input))
 	{
 		if (!validate_tetri(input + i, ft_strlen(input), i))
-			return (NULL);
+			return (1);
 		nb_t++;
 		i += 21;
 	}
-	printf("File is valid!\nnb_t: %d\ni: %d\n", nb_t, i);
-	return (NULL);
+	ft_putstr(input);
+	//call get_blocks
+	//call permutation
+	return (0);
 }
