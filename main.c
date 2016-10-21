@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 16:48:05 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/18 21:00:08 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 07:51:29 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	testing()
 		tmp++;
 	}
 
-	call_me(t, 0, 4 - 1);
+	permute(t, 0, 4 - 1);
 	printf("\nGG?\n");
 	int		i;
 	if (g_g)
@@ -73,29 +73,27 @@ void	testing()
 		printf(":(\n");
 }
 
-void	file_testing(char *file)
+void	print_usage()
 {
-	t_tetri	**t;
-
-	t = get_tetri(file);
+	ft_putstr("usage: fillit source_file\n");
 }
 
 int		main(int argc, char **argv)
 {
-	//testing();
-	if (argc == 2)
-		file_testing(*++argv);
-	/**
-	t_tetri		**tetris;
+	testing();
+	/*
 	if (argc == 2)
 	{
-		if (!(tetris = validate_input(argv[1])))
+		if (fillit(*++argv) == 1)
+		{
 			ft_putstr("error\n");
-		else
-			fillit(tetris);
+			return (1);
+		}
 	}
 	else
-		ft_putstr("usage: fillit file\n");
+	{
+		print_usage();
+	}
+	*/
 	return (0);
-	**/
 }
