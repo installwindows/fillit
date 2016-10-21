@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 05:13:52 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 05:53:29 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -36,14 +36,11 @@ static int		validate_tetri(char *s, int size, int i)
 
 	flooded = 1;
 	j = 0;
-	printf("derp\n");
 	while (j < 20)
 	{
-		if ((j + 1) % 5 == 0 && s[j] != '\n')
-		{
-			printf("Ayy %d\n", j);
+		if (((j + 1) % 5 == 0 && s[j] != '\n') || (s[j] == '\n' &&
+					(j + 1) % 5 != 0))
 			return (0);
-		}
 		if (flooded && s[j] == '#')
 		{
 			flood_fill(s, ft_strlen(s), j);
@@ -53,7 +50,6 @@ static int		validate_tetri(char *s, int size, int i)
 			return (0);
 		j++;
 	}
-	printf("next\n");
 	if (j + i < size && s[j] != '\n')
 		return (0);
 	j = 0;
@@ -68,7 +64,6 @@ static int		validate_tetri(char *s, int size, int i)
 	}
 	if (flooded != 4)
 		return (0);
-	printf("herp\n");
 	return (1);
 }
 
@@ -100,52 +95,6 @@ static char		*read_file(char *argv)
 	return (input);
 }
 
-static void		set_a(char *input, t_tetri *t)
-{
-	int		i;
-	int		y;
-	int		x;
-	int		first;
-	char	*a;
-
-	i = 0;
-	y = 0;
-	x = 0;
-	first = -1;
-	while (i < 21 && input[i])
-	{
-		if (input[i] == '#')
-		{
-			if ((i + 1) % 5 > x)
-				x = (i + 1) % 5;
-			if (first == -1)
-				first = i;
-			else
-				y = (i - first) / 5 + 1;
-		}
-		i++;
-	}
-
-}
-
-static t_tetri	**extract_tetri(char *input, int nb_t)
-{
-	t_tetri	**t;
-	int		i;
-
-	t = (t_tetri**)malloc((nb_t + 1) * sizeof(t_tetri*));
-	t[nb_t] = NULL;
-	while (nb_t--)
-	{
-		t[nb_t] = (t_tetri*)malloc(sizeof(t_tetri));
-		i = 0;
-		set_a(input, t[nb_t]);
-		t[nb_t]->letter = 'A' + nb_t;
-		input += 21;
-	}
-	return (t);
-}
-
 t_tetri	**get_tetri(char *file)
 {
 	int		i;
@@ -167,7 +116,6 @@ t_tetri	**get_tetri(char *file)
 		nb_t++;
 		i += 21;
 	}
-	printf("nb_t: %d\ni: %d\n", nb_t, i);
+	printf("File is valid!\nnb_t: %d\ni: %d\n", nb_t, i);
 	return (NULL);
-	//return (extract_tetri(input, nb_t));
 }
