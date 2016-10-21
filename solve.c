@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 07:45:11 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 08:45:12 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,45 @@ static void free_t(t_square **s)
 	while (i <= (*s)->size)
 		free((*s)->a[i++]);
 	free(*s);
+}
+
+static void	best_best_square(t_square *s, char c)
+{
+	int		i;
+	int		j;
+	int		sf;
+	int		gf;
+
+	if (c > 'Z')
+		return ;
+	gf = 0;
+	sf  = 0;
+	i = 0;
+	while (i < s->size)
+	{
+		j = 0;
+		while (j < s->size)
+		{
+			if (s->a[i][j] == c)
+				sf = 1;
+			if (g_g->a[i][j] == c)
+				gf = 1;
+			if (sf && !gf)
+			{
+				free_t(&g_g);
+				g_g = s;
+				return ;
+			}
+			if (gf && !sf)
+			{
+				free_t(&s);
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
+	best_best_square(s, c + 1);
 }
 
 static void	best_square(t_square *s)
@@ -50,6 +89,11 @@ static void	best_square(t_square *s)
 			j = 0;
 			while (j < s->size)
 			{
+				if (s->a[i][j] == '.' && g_g->a[i][j] != '.')
+				{
+					free_t(&s);
+					return ;
+				}
 				if (g_g->a[i][j] == '.' && s->a[i][j] != '.')
 				{
 					free_t(&g_g);
@@ -61,7 +105,7 @@ static void	best_square(t_square *s)
 			i++;
 		}
 	}
-	free_t(&s);
+	best_best_square(s, 'A');
 }
 
 static int	does_it_fit(t_square *s, t_tetri *t, int i, int j)
