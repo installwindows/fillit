@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 02:36:31 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 05:13:52 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -29,8 +29,46 @@ static void		flood_fill(char *s, int size, int i)
 	flood_fill(s, size, i + 1);
 }
 
-static int		validate_tetri(const char *s, int i)
+static int		validate_tetri(char *s, int size, int i)
 {
+	int		j;
+	int		flooded;
+
+	flooded = 1;
+	j = 0;
+	printf("derp\n");
+	while (j < 20)
+	{
+		if ((j + 1) % 5 == 0 && s[j] != '\n')
+		{
+			printf("Ayy %d\n", j);
+			return (0);
+		}
+		if (flooded && s[j] == '#')
+		{
+			flood_fill(s, ft_strlen(s), j);
+			flooded = 0;
+		}
+		else if (s[j] == '#')
+			return (0);
+		j++;
+	}
+	printf("next\n");
+	if (j + i < size && s[j] != '\n')
+		return (0);
+	j = 0;
+	while (j < 20)
+	{
+		if (s[j] == '1')
+		{
+			s[j] = '#';
+			flooded++;
+		}
+		j++;
+	}
+	if (flooded != 4)
+		return (0);
+	printf("herp\n");
 	return (1);
 }
 
@@ -121,12 +159,10 @@ t_tetri	**get_tetri(char *file)
 	printf("Got the input\n%s\n", input);
 	while (input[i] != '#')
 		i++;
-	flood_fill(input, ft_strlen(input), i);
-	printf("Flooded:\n%s\n", input);
 	i = 0;
 	while (i <= ft_strlen(input))
 	{
-		if (!validate_tetri(input, i))
+		if (!validate_tetri(input + i, ft_strlen(input), i))
 			return (NULL);
 		nb_t++;
 		i += 21;
