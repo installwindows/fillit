@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:34:06 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 07:45:40 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 10:02:36 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct	s_square
 
 extern t_square	*g_g;
 
-void	permute(t_tetri **t, int i, int size);
-int		fillit(char *file);
+t_square		*solve(t_tetri **t);
+void			permute(t_tetri **t, int i, int size);
+int				fillit(char *file);
 
 #endif

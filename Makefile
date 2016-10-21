@@ -1,5 +1,5 @@
 NAME = fillit
-SRC = {main.c,solve.c,validate_file.c}
+SRC = {main.c,solve.c,solve_func.c,validate_file.c}
 
 all : $(NAME)
 
