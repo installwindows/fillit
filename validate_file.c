@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 07:50:21 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/21 09:01:44 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,30 +41,21 @@ static int		validate_tetri(char *s, int size, int i)
 		if (((j + 1) % 5 == 0 && s[j] != '\n') || (s[j] == '\n' &&
 					(j + 1) % 5 != 0))
 			return (0);
-		if (flooded && s[j] == '#')
-		{
+		if (flooded && s[j] == '#' && !(flooded = 0))
 			flood_fill(s, ft_strlen(s), j);
-			flooded = 0;
-		}
 		else if (s[j] == '#')
 			return (0);
 		j++;
 	}
 	if (j + i < size && s[j] != '\n')
 		return (0);
-	j = 0;
-	while (j < 20)
-	{
+	while (j--)
 		if (s[j] == '1')
 		{
 			s[j] = '#';
 			flooded++;
 		}
-		j++;
-	}
-	if (flooded != 4)
-		return (0);
-	return (1);
+	return (flooded == 4);
 }
 
 static char		*read_file(char *argv)
@@ -103,7 +94,7 @@ int				fillit(char *file)
 
 	i = 0;
 	nb_t = 0;
-	if((input = read_file(file)) == NULL)
+	if ((input = read_file(file)) == NULL)
 		return (1);
 	while (input[i] != '#')
 		i++;
