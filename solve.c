@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 12:02:03 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:20:03 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,35 +56,22 @@ static int		best_best_square(t_square *s, char c)
 	return (best_best_square(s, c + 1));
 }
 
-static int		best_square(t_square *s)
+static void		best_square(t_square *s)
 {
-	int		i;
-	int		j;
+	int		nb_dots;
 
-	if (g_g == NULL && (g_g = s))
-		return (0);
-	if (s->size < g_g->size)
+	nb_dots = 0;
+	if (g_g == NULL)
+		g_g = s;
+	else if (s->nb_dots < g_g->nb_dots)
 	{
 		free_t(&g_g);
 		g_g = s;
-		return (0);
 	}
-	else if (s->size > g_g->size)
-		return (free_t(&s));
-	else if (s->size == g_g->size && (i = -1))
-		while (++i < s->size && (j = -1))
-			while (++j < s->size)
-			{
-				if (s->a[i][j] == '.' && g_g->a[i][j] != '.')
-					return (free_t(&s));
-				if (g_g->a[i][j] == '.' && s->a[i][j] != '.')
-				{
-					free_t(&g_g);
-					g_g = s;
-					return (0);
-				}
-			}
-	return (best_best_square(s, 'A'));
+	else if (s->nb_dots == g_g->nb_dots)
+		best_best_square(s, 'A');
+	else
+		free_t(&s);
 }
 
 static void		swap(t_tetri **t, int i, int j)

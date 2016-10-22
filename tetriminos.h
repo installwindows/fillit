@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:34:06 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 09:40:02 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:10:41 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_square
 {
 	char		**a;
 	int			size;
+	int			nb_dots;
 }				t_square;
 
 typedef struct	s_coord

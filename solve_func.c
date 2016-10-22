@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/21 09:54:27 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 09:54:37 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:10:54 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,28 @@ static int		place_t(t_square *s, t_tetri *t)
 	return (place_t(s, t));
 }
 
+static void		set_dots(t_square *s)
+{
+	int		nb_dots;
+	int		i;
+	int		j;
+
+	i = 0;
+	nb_dots = 0;
+	while (i < s->size)
+	{
+		j = 0;
+		while (j < s->size)
+		{
+			if (s->a[i][j] == '.')
+				nb_dots++;
+			j++;
+		}
+		i++;
+	}
+	s->nb_dots = nb_dots;
+}
+
 t_square		*solve(t_tetri **t)
 {
 	t_square	*s;
@@ -92,5 +114,6 @@ t_square		*solve(t_tetri **t)
 		place_t(s, *t);
 		t++;
 	}
+	set_dots(s);
 	return (s);
 }
