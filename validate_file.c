@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 10:17:55 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 10:23:18 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ static char		*read_file(char *argv)
 
 int				fillit(char *file)
 {
-	int		i;
+	size_t	i;
 	int		nb_t;
 	char	*input;
-	t_tetro	**t;
+	t_tetri	**t;
 
 	i = 0;
 	nb_t = 0;
