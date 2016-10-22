@@ -6,11 +6,10 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 09:52:45 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 10:18:14 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "tetriminos.h"
 #include "libft.h"
 

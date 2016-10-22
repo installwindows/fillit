@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 09:15:59 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 10:17:55 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include "tetriminos.h"
 #include "libft.h"
-#include <stdio.h>
 
 static void		flood_fill(char *s, int size, int i)
 {
@@ -92,6 +91,7 @@ int				fillit(char *file)
 	int		i;
 	int		nb_t;
 	char	*input;
+	t_tetro	**t;
 
 	i = 0;
 	nb_t = 0;
@@ -107,31 +107,7 @@ int				fillit(char *file)
 		nb_t++;
 		i += 21;
 	}
-	/*while (*input)
-	{
-		if (*input == '\n')
-			ft_putstr("\\n");
-		else
-			ft_putchar(*input);
-		input++;
-	}*/
-	t_tetri		**t = get_tetri(input, nb_t);
-	t_tetri		**tmp = t;
-
-	while (*tmp)
-	{
-		int a = 0;
-		printf("%c x: %d y:%d\n", (*tmp)->letter, (*tmp)->x, (*tmp)->y);
-		while (a < (*tmp)->y)
-		{
-			ft_putstr((*tmp)->a[a]);
-			ft_putchar('\n');
-			a++;
-		}
-		ft_putchar('\n');
-		tmp++;
-	}
-	printf("\npermute:\n");
+	t = get_tetri(input, nb_t);
 	permute(t, 0, nb_t - 1);
 	return (0);
 }
