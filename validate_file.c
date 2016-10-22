@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 17:56:31 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 09:15:59 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int				fillit(char *file)
 	t_tetri		**t = get_tetri(input, nb_t);
 	t_tetri		**tmp = t;
 
-	while (tmp)
+	while (*tmp)
 	{
 		int a = 0;
 		printf("%c x: %d y:%d\n", (*tmp)->letter, (*tmp)->x, (*tmp)->y);

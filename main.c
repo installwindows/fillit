@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 16:48:05 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/21 17:15:29 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 09:16:32 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ int		main(int argc, char **argv)
 			ft_putstr("error\n");
 			return (1);
 		}
-		i = 0;/*
+		i = 0;
 		while (i < g_g->size)
 		{
 			ft_putstr(g_g->a[i]);
 			ft_putchar('\n');
 			i++;
-		}*/
+		}
 	}
 	else
 	{
