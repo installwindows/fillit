@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 12:20:03 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:54:16 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 
 t_square	*g_g = NULL;
 
-static int		free_t(t_square **s)
+static int		free_t(t_square *s)
 {
 	int		i;
 
 	i = 0;
-	while (i <= (*s)->size)
-		free((*s)->a[i++]);
-	free(*s);
+	while (i < s->size)
+		free(s->a[i++]);
+	free(s->a);
+	free(s);
 	return (0);
 }
 
@@ -46,12 +47,12 @@ static int		best_best_square(t_square *s, char c)
 			gf = g_g->a[i][j] == c ? 1 : 0;
 			if (sf && !gf)
 			{
-				free_t(&g_g);
+				free_t(g_g);
 				g_g = s;
 				return (0);
 			}
 			if (gf && !sf)
-				return (free_t(&s));
+				return (free_t(s));
 		}
 	return (best_best_square(s, c + 1));
 }
@@ -65,13 +66,13 @@ static void		best_square(t_square *s)
 		g_g = s;
 	else if (s->nb_dots < g_g->nb_dots)
 	{
-		free_t(&g_g);
+		free_t(g_g);
 		g_g = s;
 	}
 	else if (s->nb_dots == g_g->nb_dots)
 		best_best_square(s, 'A');
 	else
-		free_t(&s);
+		free_t(s);
 }
 
 static void		swap(t_tetri **t, int i, int j)
