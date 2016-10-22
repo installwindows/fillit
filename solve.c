@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 10:22:19 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:02:03 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ static int		best_square(t_square *s)
 		g_g = s;
 		return (0);
 	}
+	else if (s->size > g_g->size)
+		return (free_t(&s));
 	else if (s->size == g_g->size && (i = -1))
 		while (++i < s->size && (j = -1))
 			while (++j < s->size)

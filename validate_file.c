@@ -6,7 +6,7 @@
 /*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 10:23:18 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/22 12:02:05 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static int		validate_tetri(char *s, int size, int i)
 					(j + 1) % 5 != 0))
 			return (0);
 		if (flooded && s[j] == '#' && !(flooded = 0))
-			flood_fill(s, ft_strlen(s), j);
+			flood_fill(s, 19, j);
 		else if (s[j] == '#')
 			return (0);
 		j++;
