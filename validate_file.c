@@ -93,18 +93,15 @@ int				fillit(char *file)
 	char	*input;
 	t_tetri	**t;
 
-	i = 0;
 	nb_t = 0;
 	if ((input = read_file(file)) == NULL)
 		return (1);
-	while (input[i] != '#')
-		i++;
 	i = 0;
 	while (i <= ft_strlen(input))
 	{
-		if (!validate_tetri(input + i, ft_strlen(input), i))
-			return (1);
 		nb_t++;
+		if (!validate_tetri(input + i, ft_strlen(input), i) || nb_t > 26)
+			return (1);
 		i += 21;
 	}
 	t = get_tetri(input, nb_t);
