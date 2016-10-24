@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   solve_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/21 09:54:27 by varnaud           #+#    #+#             */
 /*   Updated: 2016/10/22 12:10:54 by varnaud          ###   ########.fr       */
