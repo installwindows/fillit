@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 16:48:05 by varnaud           #+#    #+#             */
 /*   Updated: 2016/10/22 10:13:56 by varnaud          ###   ########.fr       */

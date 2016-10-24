@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   validate_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/06 17:02:21 by varnaud           #+#    #+#             */
 /*   Updated: 2016/10/22 12:02:05 by varnaud          ###   ########.fr       */

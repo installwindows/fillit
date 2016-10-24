@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   tetriminos.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 18:34:06 by varnaud           #+#    #+#             */
 /*   Updated: 2016/10/22 12:10:41 by varnaud          ###   ########.fr       */

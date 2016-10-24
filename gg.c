@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   gg.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: varnaud <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/22 10:07:19 by varnaud           #+#    #+#             */
 /*   Updated: 2016/10/22 10:08:52 by varnaud          ###   ########.fr       */
