@@ -6,7 +6,7 @@
 /*   By: varnaud <varnaud@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/11 19:52:13 by varnaud           #+#    #+#             */
-/*   Updated: 2016/10/22 12:54:16 by varnaud          ###   ########.fr       */
+/*   Updated: 2016/10/25 13:23:50 by varnaud          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ static int		best_best_square(t_square *s, char c)
 
 static void		best_square(t_square *s)
 {
-	int		nb_dots;
-
-	nb_dots = 0;
 	if (g_g == NULL)
 		g_g = s;
 	else if (s->nb_dots < g_g->nb_dots)
