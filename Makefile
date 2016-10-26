@@ -4,7 +4,8 @@ CFLAGS = -Wall -Werror -Wextra
 all : $(NAME)
 
 $(NAME):
-	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
+	make -C libft/ fclean && make -C libft/
+	$(CC) $(CFLAGS) $(SRC) -o $(NAME) -I libft/ -L libft/ -lft
 
 clean:
 
