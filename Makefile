@@ -6,6 +6,8 @@ all : $(NAME)
 $(NAME):
 	$(CC) $(CFLAGS) $(SRC) libft.a -o $(NAME)
 
+clean:
+
 fclean:
 	rm $(NAME)
 
